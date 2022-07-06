@@ -1,5 +1,7 @@
 // TODO: Include packages needed for this application
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -42,18 +44,23 @@ const questions = [
             "Unlicense"
         ]
     }
-
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data);
+}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
     .prompt(questions)
-    .then((answers) => {
     
+    // add answer to generateMarkDown function
+    .then((answers) => {
+        
+        var data = generateMarkdown(answers);
+        console.log(data); // testing
     })
 }
 
