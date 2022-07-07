@@ -1,4 +1,4 @@
-// If there is no license, return an empty string
+
 function renderLicenseBadge(license) {
   var badge = "";
   switch (license) {
@@ -126,20 +126,22 @@ function renderLicenseSection(license) {
   return licenseSection;
 }
 
+// If there is no license, return an empty string
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  var licenseSection = renderLicenseSection(data.license);
+  var licenseSection = renderLicenseSection(data.license);  // destructuring
+  var {title,description, usage, credits} = data;
   return `
-    # ${data.title}
+    # ${title}
     
     ## Description
-    ${data.description}
+    ${description}
 
     ## Usage
-    ${data.usage}
+    ${usage}
 
     ## Credit
-    ${data.credits}
+    ${credits}
 
     ## License
     ${licenseSection}
