@@ -7,30 +7,30 @@ var title = "";
 // TODO: Create an array of questions for user input
 const questions = [
     {
-        "type": "input",
-        "name": "title",
-        "message": "Enter the title of the project "
+        type: "input",
+        name: "title",
+        message: "Enter the title of the project "
     },
     {
-        "type": "input",
-        "name": "description",
-        "message": "Provide a short description explaining the what, why, and how of your project."
+        type: "input",
+        name: "description",
+        message: "Provide a short description explaining the what, why, and how of your project."
     },
     {
-        "type": "input",
-        "name": "usage",
-        "message": "Provide instructions and examples for use."
+        type: "input",
+        name: "usage",
+        message: "Provide instructions and examples for use."
     },
     {
-        "type": "input",
-        "name": "credits",
-        "message": "List your collaborators, any third-party assets, tutorials, if any, with links to their GitHub profiles."
+        type: "input",
+        name: "credits",
+        message: "List your collaborators, any third-party assets, tutorials, if any, with links to their GitHub profiles."
     },
     {
-        "type": "list",
-        "name": "license",
-        "message": "Choose a license",
-        "choices": [
+        type: "list",
+        name: "license",
+        message: "Choose a license",
+        choices: [
             "Apache",
             "Boost",
             "BSD 3",
@@ -60,8 +60,7 @@ function init() {
     // add answer to generateMarkDown function
     .then((answers) => {
         title = answers.title;
-        var data = generateMarkdown(answers);
-        writeToFile(`${title}.md`, data)
+        writeToFile(`${title}.md`, generateMarkdown(answers));
     })
     .catch((err) => {
         console.log(err);
