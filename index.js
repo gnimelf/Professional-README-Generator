@@ -14,12 +14,12 @@ const questions = [
     {
         type: "input",
         name: "description",
-        message: "Provide a short description explaining the what, why, and how of your project."
+        message: "Provide a short description explaining the what, why, and how of your project. "
     },
     {
         type: "input",
         name: "usage",
-        message: "Provide instructions and examples for use."
+        message: "Provide instructions and examples for use. "
     },
     {
         type: "input",
@@ -29,7 +29,7 @@ const questions = [
     {
         type: "list",
         name: "license",
-        message: "Choose a license",
+        message: "Choose a license ",
         choices: [
             "Apache",
             "Boost",
@@ -44,6 +44,26 @@ const questions = [
             "SIL",
             "Unlicense"
         ]
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'How can other contribute? '
+    },
+    {
+        type: "input",
+        name: 'tests',
+        message: 'Enter test(s) for your application '
+    },
+    {
+        type: "input",
+        name: 'userName',
+        message: 'Enter in your GitHub username '
+    },
+    {
+        type: "input",
+        name: 'emailAddress',
+        message: 'Enter in your email address '
     }
 ];
 
@@ -60,7 +80,7 @@ function init() {
     // add answer to generateMarkDown function
     .then((answers) => {
         title = answers.title;
-        writeToFile(`${title}.md`, generateMarkdown(answers));
+        writeToFile(`${title}_README.md`, generateMarkdown(answers));
     })
     .catch((err) => {
         console.log(err);
